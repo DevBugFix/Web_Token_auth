@@ -1,15 +1,15 @@
-import { UserService } from './../services/user.service';
 import { Component, OnInit } from '@angular/core';
-import { User } from '../Models/user';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
+import { User } from '../Models/user';
+import { UserService } from '../services/user.service';
 import { BlockUiTemplateComponent } from '../sharedModule/block-ui-template/block-ui-template.component';
 
 @Component({
-  selector: 'app-user-management',
-  templateUrl: './user-management.component.html',
-  styleUrls: ['./user-management.component.scss']
+  selector: 'app-all-user-management',
+  templateUrl: './all-user-management.component.html',
+  styleUrls: ['./all-user-management.component.scss']
 })
-export class UserManagementComponent implements OnInit {
+export class AllUserManagementComponent implements OnInit {
   @BlockUI('user-loader') blockUI: NgBlockUI;
   public blockUiTemplateComponent = BlockUiTemplateComponent;
   public loaderMessage: string = "loading test";
@@ -22,11 +22,12 @@ export class UserManagementComponent implements OnInit {
 
   getAllUser() {
     this.blockUI.start();
-    this.userService.getUserList().subscribe((data: User[]) => {
+    this.userService.getAllUser().subscribe((data: User[]) => {
       this.userList = data;
       this.blockUI.stop();
     }, () => {
       this.blockUI.stop();
     })
   }
+
 }

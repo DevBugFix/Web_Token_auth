@@ -23,8 +23,20 @@
                 <input type="password" formControlName="password" class="form-control" id="inputPassword">
               </div>
             </div>
+            <div class="row mb-3">
+              <label for="inputPassword" class="col-sm-2 col-form-label">Role</label>
+              <div class="col-sm-2">
+                <div class="form-check" *ngFor="let role of roles;let index=index">
+                  <input class="form-check-input" type="checkbox" name="role" [checked]="role.isSelected" (change)="onRoleChange(role.role)" id="{{index}}">
+                  <label class="form-check-label"  for="{{index}}">
+                    {{role.role}}
+                  </label>
+                </div>
+              </div>
+
+            </div>
           </div>
-          <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid">Login</button>
+          <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid || !isRoleSelected">Login</button>
         </form>
       </div>
 
