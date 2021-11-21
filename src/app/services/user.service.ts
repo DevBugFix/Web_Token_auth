@@ -6,13 +6,14 @@ import { ResponseCode } from '../enums/responseCode';
 import { User } from '../Models/user';
 import { Constants } from '../Helper/constants';
 import { Role } from '../Models/role';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
    private readonly baseURL:string="https://localhost:5001/api/user/"
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient:HttpClient,private toastr: ToastrService) { }
 
    public login(email:string , password:string)
    {
@@ -73,6 +74,8 @@ export class UserService {
                userList.push(new User(x.fullName,x.email,x.userName,x.roles));
            })
            }
+          }else{
+            this.toastr.error(res.responseMessage);
           }
           return userList;
     }));

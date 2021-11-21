@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -11,6 +11,7 @@ import { UserManagementComponent } from './user-management/user-management.compo
 import { BlockUiTemplateComponent } from './sharedModule/block-ui-template/block-ui-template.component'
 import { BlockUIModule } from 'ng-block-ui';
 import { AllUserManagementComponent } from './all-user-management/all-user-management.component';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -29,6 +30,8 @@ import { AllUserManagementComponent } from './all-user-management/all-user-manag
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     BlockUIModule.forRoot({
       template: BlockUiTemplateComponent
     })

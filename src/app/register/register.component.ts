@@ -4,6 +4,8 @@ import { Validators, FormBuilder } from '@angular/forms';
 import { Role } from '../Models/role';
 import { UserService } from '../services/user.service';
 import { ResponseCode } from '../enums/responseCode';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +20,7 @@ export class RegisterComponent implements OnInit {
     email:['',[Validators.email,Validators.required]],
     password:['',Validators.required]
   })
-  constructor(private formBuilder:FormBuilder,private userServie:UserService) { }
+  constructor(private router:Router,private formBuilder:FormBuilder,private userServie:UserService,private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.getAllRoles();
@@ -36,10 +38,16 @@ export class RegisterComponent implements OnInit {
         this.registerForm.controls["email"].setValue("");
         this.registerForm.controls["password"].setValue("");
         this.roles.forEach(x=>x.isSelected=false);
+        this.toastr.success("You have created account please login");
+        this.router.navigate(["login"]);
+
+       }else{
+         this.toastr.error(data.dateSet[0]);
        }
      console.log("response",data);
     },error=>{
       console.log("error",error)
+      this.toastr.error("Something went wrong please try again later");
     })
   }
 getAllRoles()
