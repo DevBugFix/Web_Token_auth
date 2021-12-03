@@ -1,3 +1,4 @@
+import { ArticleManagementComponent } from './article-module/article-management/article-management.component';
 import { AllUserManagementComponent } from './all-user-management/all-user-management.component';
 import { UserManagementComponent } from './user-management/user-management.component';
 import { RegisterComponent } from './register/register.component';
@@ -10,7 +11,8 @@ const routes: Routes = [
   { path: "register", component: RegisterComponent },
   { path: "login", component: LoginComponent },
   { path: "user-management", component: UserManagementComponent, canActivate: [AuthGuardService] },
-  { path: "all-user-management", component: AllUserManagementComponent, canActivate: [AuthGuardService] }
+  { path: "all-user-management", component: AllUserManagementComponent, canActivate: [AuthGuardService] },
+  { path: "article-management", component: ArticleManagementComponent, canActivate: [AuthGuardService] }
 
 ];
 

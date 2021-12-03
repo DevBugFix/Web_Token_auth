@@ -12,7 +12,7 @@ import { ToastrService } from 'ngx-toastr';
   providedIn: 'root'
 })
 export class UserService {
-   private readonly baseURL:string="https://localhost:5001/api/user/"
+
   constructor(private httpClient:HttpClient,private toastr: ToastrService) { }
 
    public login(email:string , password:string)
@@ -21,7 +21,7 @@ export class UserService {
        Email:email,
        Password:password
      }
-    return this.httpClient.post<ResponseModel>(this.baseURL+"Login",body);
+    return this.httpClient.post<ResponseModel>(Constants.BASE_URL+"user/Login",body);
    }
 
    public register(fullname:string,email:string , password:string,roles:string[])
@@ -33,7 +33,7 @@ export class UserService {
        Password:password,
        Roles:roles
      }
-    return this.httpClient.post<ResponseModel>(this.baseURL+"RegisterUser",body);
+    return this.httpClient.post<ResponseModel>(Constants.BASE_URL+"user/RegisterUser",body);
    }
 
    public getAllUser()
@@ -43,14 +43,14 @@ export class UserService {
 'Authorization':`Bearer ${userInfo?.token }`
     });
 
-    return this.httpClient.get<ResponseModel>(this.baseURL+"GetAllUser",{headers:headers}).pipe(map(res=>{
+    return this.httpClient.get<ResponseModel>(Constants.BASE_URL+"user/GetAllUser",{headers:headers}).pipe(map(res=>{
       let userList=new Array<User>();
       if(res.responseCode==ResponseCode.OK)
       {
            if(res.dateSet)
            {
            res.dateSet.map((x:User)=>{
-               userList.push(new User(x.fullName,x.email,x.userName,x.roles));
+               userList.push(new User(x.userId,x.fullName,x.email,x.userName,x.roles));
            })
            }
           }
@@ -64,14 +64,14 @@ export class UserService {
 'Authorization':`Bearer ${userInfo?.token }`
     });
 
-    return this.httpClient.get<ResponseModel>(this.baseURL+"GetUserList",{headers:headers}).pipe(map(res=>{
+    return this.httpClient.get<ResponseModel>(Constants.BASE_URL+"user/GetUserList",{headers:headers}).pipe(map(res=>{
       let userList=new Array<User>();
       if(res.responseCode==ResponseCode.OK)
       {
            if(res.dateSet)
            {
            res.dateSet.map((x:User)=>{
-               userList.push(new User(x.fullName,x.email,x.userName,x.roles));
+               userList.push(new User(x.userId,x.fullName,x.email,x.userName,x.roles));
            })
            }
           }else{
@@ -87,7 +87,7 @@ export class UserService {
 'Authorization':`Bearer ${userInfo?.token }`
     });
 
-    return this.httpClient.get<ResponseModel>(this.baseURL+"GetRoles",{headers:headers}).pipe(map(res=>{
+    return this.httpClient.get<ResponseModel>(Constants.BASE_URL+"user/GetRoles",{headers:headers}).pipe(map(res=>{
       let roleList=new Array<Role>();
       if(res.responseCode==ResponseCode.OK)
       {

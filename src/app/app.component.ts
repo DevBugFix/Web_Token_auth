@@ -19,7 +19,7 @@ export class AppComponent {
   constructor(private router: Router) {
 
     if (this.isUserlogin) {
-      this.router.navigate(["/user-management"]);
+     // this.router.navigate(["/user-management"]);
     }
 
   }

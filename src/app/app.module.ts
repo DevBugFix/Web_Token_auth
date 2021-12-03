@@ -1,3 +1,4 @@
+import { ConfirmModalComponent } from './modal-components/confirm-modal/confirm-modal.component';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -12,7 +13,9 @@ import { BlockUiTemplateComponent } from './sharedModule/block-ui-template/block
 import { BlockUIModule } from 'ng-block-ui';
 import { AllUserManagementComponent } from './all-user-management/all-user-management.component';
 import { ToastrModule } from 'ngx-toastr';
-
+import { ArticleManagementComponent } from './article-module/article-management/article-management.component';
+import { AddUpdateArticleComponent } from './article-module/add-update-article/add-update-article.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,8 @@ import { ToastrModule } from 'ngx-toastr';
     UserManagementComponent,
     BlockUiTemplateComponent,
     AllUserManagementComponent,
+    ArticleManagementComponent,
+    AddUpdateArticleComponent,
 
   ],
   imports: [
@@ -34,9 +39,10 @@ import { ToastrModule } from 'ngx-toastr';
     ToastrModule.forRoot(),
     BlockUIModule.forRoot({
       template: BlockUiTemplateComponent
-    })
+    }),
+    ModalModule.forRoot()
   ],
-  entryComponents:[BlockUiTemplateComponent],
+  entryComponents:[BlockUiTemplateComponent,ConfirmModalComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
