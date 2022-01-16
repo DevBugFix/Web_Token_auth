@@ -15,14 +15,15 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
 
    public roles:Role[]=[];
-  public registerForm=this.formBuilder.group({
-    fullName:['',[Validators.required]],
-    email:['',[Validators.email,Validators.required]],
-    password:['',Validators.required]
-  })
+  public registerForm;
   constructor(private router:Router,private formBuilder:FormBuilder,private userServie:UserService,private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    this.registerForm=this.formBuilder.group({
+      fullName:['',[Validators.required]],
+      email:['',[Validators.email,Validators.required]],
+      password:['',Validators.required]
+    });
     this.getAllRoles();
   }
   onSubmit()

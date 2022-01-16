@@ -1,0 +1,36 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">{{headerTitle}}</h4>
+  <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="decline()">
+    <span aria-hidden="true" class="visually-hidden">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+   <form [formGroup]="addUpdateArticleForm" >
+     <div class="row">
+       <label>Title</label>
+   <div class="col-12">
+     <input type="text" formControlName="title" [(ngModel)]="articleTitle" id="title" name="title" class="form-control"/>
+     <div *ngIf="getFormControl('title').invalid && (getFormControl('title').dirty || getFormControl('title').touched)">
+       <div class="text-danger" *ngIf="getFormControl('title').errors.required">
+         Title is required
+       </div>
+
+     </div>
+    </div>
+     </div>
+
+     <div class="row mt-3">
+       <label>Body</label>
+       <div class="col-12">
+   <app-ck-editor  formControlName="body" [(ngModel)]="articleBody"></app-ck-editor>
+       </div>
+     </div>
+
+
+   </form>
+
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-secondary" (click)="decline()">Close</button>
+  <button type="submit" class="btn btn-outline-secondary" (click)="confirm()" [disabled]="addUpdateArticleForm.invalid">{{confirmBtnTitle}}</button>
+</div>

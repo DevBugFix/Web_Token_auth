@@ -14,8 +14,12 @@ import { BlockUIModule } from 'ng-block-ui';
 import { AllUserManagementComponent } from './all-user-management/all-user-management.component';
 import { ToastrModule } from 'ngx-toastr';
 import { ArticleManagementComponent } from './article-module/article-management/article-management.component';
-import { AddUpdateArticleComponent } from './article-module/add-update-article/add-update-article.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { AddUpdateArticleComponent } from './modal-components/add-update-article/add-update-article.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { MyCkEditorComponent } from './sharedModule/ck-editor-module/my-ck-editor/my-ck-editor.component';
+import { StripHtmlPipe } from './sharedModule/pipes/strip-html.pipe';
+import { TruncatePipe } from './sharedModule/pipes/truncate.pipe';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,11 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     BlockUiTemplateComponent,
     AllUserManagementComponent,
     ArticleManagementComponent,
+    MyCkEditorComponent,
     AddUpdateArticleComponent,
+    StripHtmlPipe,
+    TruncatePipe
+
 
   ],
   imports: [
@@ -40,7 +48,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     BlockUIModule.forRoot({
       template: BlockUiTemplateComponent
     }),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    CKEditorModule,
   ],
   entryComponents:[BlockUiTemplateComponent,ConfirmModalComponent],
   providers: [],

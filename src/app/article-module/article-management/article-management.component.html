@@ -13,7 +13,7 @@
             <tr>
               <th scope="col">Title</th>
               <th scope="col">Body</th>
-              <th scope="col">Status</th>
+              <th scope="col">Publish</th>
               <th scope="col">Created Date</th>
               <th scope="col">Modified Date</th>
               <th scope="col">Action</th>
@@ -22,14 +22,21 @@
           <tbody>
             <tr *ngFor="let article of articleList">
               <td>{{article.title}}</td>
-              <td>{{article.body}}</td>
-              <td>{{article.status}}</td>
-              <td>{{article.createdDate}}</td>
-              <td>{{article.modifiedDate}}</td>
+              <td>{{article.body | stripHtml | truncate:[100,'...']}}</td>
+              <td>
+
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" [checked]="article.status" (change)="onStatusChange(article)" role="switch" id="flexSwitchCheckDefault">
+
+                </div>
+
+              </td>
+              <td>{{article.createdDate | date:'M/d/y'}}</td>
+              <td>{{ article.modifiedDate.getFullYear()>2000 ? (article.modifiedDate | date:'M/d/y'):'---'}}</td>
               <td>
                 <div class="btn-group">
 
-                  <button type="button" class="btn btn-secondary" (click)="onEdit(article.id)">Edit</button>
+                  <button type="button" class="btn btn-secondary" (click)="onEdit(article)">Edit</button>
                    <button type="button" class="btn btn-secondary" (click)="onDelete(article.id)">Delete</button>
                 </div>
               </td>

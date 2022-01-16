@@ -26,6 +26,24 @@ export class ArticleService {
 
   }
 
+  public addUpdateArticle(articleId: number,title:string ,articleBody:string,publish:boolean,userId:string) {
+
+    let userInfo = JSON.parse(localStorage.getItem(Constants.USER_KEY));
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${userInfo?.token}`
+    });
+    const body = {
+      Id: articleId,
+      Title:title,
+      Body:articleBody,
+      Publish:publish,
+      AppUserId:userId
+
+    }
+    return this.httpClient.post<ResponseModel>(Constants.BASE_URL + "Article/AddUpdateArticle", body, { headers: headers });
+
+  }
+
   public getArticlesByAuthorId(authorId: string) {
     let userInfo = JSON.parse(localStorage.getItem(Constants.USER_KEY));
     const headers = new HttpHeaders({
@@ -38,7 +56,7 @@ export class ArticleService {
 
         if (res.dateSet) {
           res.dateSet.map((x: any) => {
-            articleList.push(new Article(x.id, x.title, x.body, x.publish, x.createdDate, x.modifiedDate));
+            articleList.push(new Article(x.id, x.title, x.body, x.publish,new Date(x.createdDate), new Date(x.modifiedDate)));
           })
         }
       }
