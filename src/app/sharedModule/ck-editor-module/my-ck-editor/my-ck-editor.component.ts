@@ -56,7 +56,7 @@ export class MyCkEditorComponent implements OnInit, ControlValueAccessor {
   }
 
   title = 'ckeditorAngular10';
-  @Input() config = {
+  @Input() config:any = {
     toolbar: {
       items: [
         'heading', '|',

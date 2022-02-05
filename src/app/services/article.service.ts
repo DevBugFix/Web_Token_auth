@@ -84,4 +84,24 @@ export class ArticleService {
     }));
   }
 
+  public getArticleById(articleId: number) {
+    let userInfo = JSON.parse(localStorage.getItem(Constants.USER_KEY));
+    const headers = new HttpHeaders({
+
+    });
+
+    return this.httpClient.get<ResponseModel>(Constants.BASE_URL + "Article/GetArticleById?Id=" + articleId, { headers: headers }).pipe(map(res => {
+      let article = new Article();
+      if (res.responseCode == ResponseCode.OK) {
+
+        if (res.dateSet) {
+          let x = res.dateSet;
+          article = new Article(x.id, x.title, x.body, x.publish, new Date(x.createdDate), new Date(x.modifiedDate))
+
+        }
+      }
+      return article;
+    }));
+  }
+
 }

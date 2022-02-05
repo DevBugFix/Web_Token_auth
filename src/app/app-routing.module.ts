@@ -1,3 +1,4 @@
+import { ArticleDetailComponent } from './public-feature-module/article-detail/article-detail.component';
 import { AllArticleListPublicComponent } from './public-feature-module/all-article-list-public/all-article-list-public.component';
 import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.component';
 import { PublicLayoutComponent } from './layout/public-layout/public-layout.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
    path:"",component:PublicLayoutComponent,
    children:[
     {path: "" ,component:AllArticleListPublicComponent},
+    {path: "article" ,component:ArticleDetailComponent},
     { path: "register", component: RegisterComponent },
     { path: "login", component: LoginComponent },
    ]

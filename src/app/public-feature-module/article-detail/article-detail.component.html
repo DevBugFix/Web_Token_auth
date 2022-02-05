@@ -1,0 +1,16 @@
+
+
+<div class="container" *blockUI="'user-loader'; message: loaderMessage; template: blockUiTemplateComponent">
+  <div class="row justify-content-center">
+    <div class="col-10" style="max-width: 850px;">
+      <div class=" mb-2 p-3">
+        <h6 class="card-subtitle text-muted mb-2">{{article.createdDate | date:'M/d/y'}} </h6>
+        <h5 class="card-title">{{article.title}} </h5>
+        <app-ck-editor [(ngModel)]="article.body" [readonly]="true" [config]="{}"></app-ck-editor>
+
+    </div>
+  </div>
+</div>
+
+
+

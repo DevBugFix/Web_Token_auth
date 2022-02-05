@@ -23,6 +23,7 @@ import { TruncatePipe } from './sharedModule/pipes/truncate.pipe';
 import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.component';
 import { PublicLayoutComponent } from './layout/public-layout/public-layout.component';
 import { AllArticleListPublicComponent } from './public-feature-module/all-article-list-public/all-article-list-public.component';
+import { ArticleDetailComponent } from './public-feature-module/article-detail/article-detail.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { AllArticleListPublicComponent } from './public-feature-module/all-artic
     TruncatePipe,
     AdminLayoutComponent,
     PublicLayoutComponent,
-    AllArticleListPublicComponent
+    AllArticleListPublicComponent,
+    ArticleDetailComponent
 
 
   ],
