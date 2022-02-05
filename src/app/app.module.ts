@@ -20,6 +20,9 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { MyCkEditorComponent } from './sharedModule/ck-editor-module/my-ck-editor/my-ck-editor.component';
 import { StripHtmlPipe } from './sharedModule/pipes/strip-html.pipe';
 import { TruncatePipe } from './sharedModule/pipes/truncate.pipe';
+import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.component';
+import { PublicLayoutComponent } from './layout/public-layout/public-layout.component';
+import { AllArticleListPublicComponent } from './public-feature-module/all-article-list-public/all-article-list-public.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,10 @@ import { TruncatePipe } from './sharedModule/pipes/truncate.pipe';
     MyCkEditorComponent,
     AddUpdateArticleComponent,
     StripHtmlPipe,
-    TruncatePipe
+    TruncatePipe,
+    AdminLayoutComponent,
+    PublicLayoutComponent,
+    AllArticleListPublicComponent
 
 
   ],

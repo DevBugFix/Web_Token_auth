@@ -64,7 +64,8 @@ export class ArticleManagementComponent implements OnInit {
         confirmBtnTitle: 'Update',
         articleId: tempArticle.id,
         articleTitle: tempArticle.title,
-        articleBody: tempArticle.body
+        articleBody: tempArticle.body,
+        articleStatus:tempArticle.status
       },
       ignoreBackdropClick: true,
       backdrop: true,

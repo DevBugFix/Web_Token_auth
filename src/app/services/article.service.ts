@@ -47,6 +47,26 @@ export class ArticleService {
   public getArticlesByAuthorId(authorId: string) {
     let userInfo = JSON.parse(localStorage.getItem(Constants.USER_KEY));
     const headers = new HttpHeaders({
+      'Authorization': `Bearer ${userInfo?.token}`
+    });
+
+    return this.httpClient.get<ResponseModel>(Constants.BASE_URL + "Article/GetArticleListForAdmin?AuthorId=" + authorId, { headers: headers }).pipe(map(res => {
+      let articleList = new Array<Article>();
+      if (res.responseCode == ResponseCode.OK) {
+
+        if (res.dateSet) {
+          res.dateSet.map((x: any) => {
+            articleList.push(new Article(x.id, x.title, x.body, x.publish,new Date(x.createdDate), new Date(x.modifiedDate)));
+          })
+        }
+      }
+      return articleList;
+    }));
+  }
+
+  public getPublishedArticles(authorId: string) {
+    let userInfo = JSON.parse(localStorage.getItem(Constants.USER_KEY));
+    const headers = new HttpHeaders({
 
     });
 

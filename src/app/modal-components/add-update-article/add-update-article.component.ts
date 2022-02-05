@@ -22,6 +22,7 @@ export class AddUpdateArticleComponent implements OnInit {
   public confirmBtnTitle:string='Add';
   public articleId:number=0;
   public articleTitle:string='';
+  public articleStatus:boolean=false;
   public articleBody:string='';
   public modalResponse:Subject<boolean>;
   public addUpdateArticleForm:FormGroup;
@@ -42,7 +43,7 @@ export class AddUpdateArticleComponent implements OnInit {
   confirm() {
     console.log("on Confirm title",this.articleTitle,"body =>",this.articleBody)
     this.blockUI.start();
-    this.articleService.addUpdateArticle(this.articleId,this.articleTitle,this.articleBody,false,this.user.userId).subscribe((res)=>{
+    this.articleService.addUpdateArticle(this.articleId,this.articleTitle,this.articleBody,this.articleStatus,this.user.userId).subscribe((res)=>{
       this.blockUI.stop();
       if(res.responseCode==ResponseCode.OK)
       {
