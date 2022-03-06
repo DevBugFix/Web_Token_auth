@@ -26,41 +26,38 @@ import { AllArticleListPublicComponent } from './public-feature-module/all-artic
 import { ArticleDetailComponent } from './public-feature-module/article-detail/article-detail.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    RegisterComponent,
-    UserManagementComponent,
-    BlockUiTemplateComponent,
-    AllUserManagementComponent,
-    ArticleManagementComponent,
-    MyCkEditorComponent,
-    AddUpdateArticleComponent,
-    StripHtmlPipe,
-    TruncatePipe,
-    AdminLayoutComponent,
-    PublicLayoutComponent,
-    AllArticleListPublicComponent,
-    ArticleDetailComponent
-
-
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    ToastrModule.forRoot(),
-    BlockUIModule.forRoot({
-      template: BlockUiTemplateComponent
-    }),
-    ModalModule.forRoot(),
-    CKEditorModule,
-  ],
-  entryComponents:[BlockUiTemplateComponent,ConfirmModalComponent],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        LoginComponent,
+        RegisterComponent,
+        UserManagementComponent,
+        BlockUiTemplateComponent,
+        AllUserManagementComponent,
+        ArticleManagementComponent,
+        MyCkEditorComponent,
+        AddUpdateArticleComponent,
+        StripHtmlPipe,
+        TruncatePipe,
+        AdminLayoutComponent,
+        PublicLayoutComponent,
+        AllArticleListPublicComponent,
+        ArticleDetailComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        ToastrModule.forRoot(),
+        BlockUIModule.forRoot({
+            template: BlockUiTemplateComponent
+        }),
+        ModalModule.forRoot(),
+        CKEditorModule,
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
