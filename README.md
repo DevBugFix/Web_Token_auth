@@ -1,27 +1,20 @@
-# WebAuth
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.1.
+## This repostistory is part of Youtube Video Tutorials, Video links are give Below 
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+**Part 1 **
+ASP .NET Core 5 Web API step by step & Integrate in Angular 11 | Secure API with JWT Token video link is given below                                        
+[YouTube Link](https://youtu.be/BIk7PssaDe8 "YouTube Link")
 
-## Code scaffolding
+**Part 2 **
+ASP .NET Core 5 Web API - Role based Authorization with Angular, Video link given below                   
+[YouTube Link](https://youtu.be/8RtzxlsBLlU "YouTube Link")
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+**Part 3**
+ASP .NET Core 5 Web API - Role based Authorization with Angular | User with multiples Roles | Part 2              
+[YouTube Link](https://youtu.be/v3Ndo0VXYa4  "YouTube Link")
 
-## Build
+**Angular - Notification Message | ngx-toaster**                            
+[YouTube Link](https://youtu.be/SZoRZX-tvVo "YouTube Link")
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Subscribe my Channel to get more new videos 
